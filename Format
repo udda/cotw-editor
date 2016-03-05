@@ -1,0 +1,142 @@
+--------------
+Copyright (C) 2011-2016 Mario Cianciolo <mr.udda@gmail.com>
+
+This file is part of CotW Editor.
+
+CotW Editor is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+CotW Editor is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with CotW Editor.  If not, see <http://www.gnu.org/licenses/>.
+--------------
+
+CotW Savegame Format
+TODO: check informations from http://lkbm.ecritters.biz/cotw/cheats.html
+
+
+0x0000
+
+0x0080		[1]		UBYTE			Strength (max)			[0-100]
+0x0081		[1]		UBYTE			Intelligence (max)		[0-100]
+0x0082		[1]		UBYTE			Constitution (max)		[0-100]
+0x0083		[1]		UBYTE			Dexerity (max)			[0-100]
+0x0084		[1]		UBYTE			Strength (current)		[0-100]
+0x0085		[1]		UBYTE			Intelligence (current)	[0-100]
+0x0086		[1]		UBYTE			Constitution (current)	[0-100]
+0x0087		[1]		UBYTE			Dexterity (current)		[0-100]
+0x0088
+
+0x0090		[1]		UBYTE			Strength bonus
+0x0091		[1]		UBYTE			Intelligence bonus
+0x0092		[1]		UBYTE			Constitution bonus
+0x0093		[1]		UBYTE			Dexterity bonus
+0x0094		[2]		SHORT			HP (current)
+0x0096		[2]		SHORT			HP (max)
+0x0098		[2]		SHORT			Mana (current)
+0x009A		[2]		SHORT			Mana (max)
+0x009C		[2]		SHORT			Livello
+0x009E		[4]		INT				Experience (current)
+*0x00A2		[4]		INT				Experience (max)
+*0x00A6		[2]		SHORT			Armor (current)
+*0x00A8		[2]		SHORT			Hit bonus
+*0x00AA		[2]		SHORT			Damage bonus
+0x00AC
+
+*0x00B4		position Y? (0x21 - *0x00B6)
+*0x00B5		position X? (0x21 - *0x00B7)
+*0x00B6		position Y? (0x21 - *0x00B4)
+*0x00B7		position X? (0x21 - *0x00B5)
+
+0x00BA		[1]		UBYTE			Gender					[0 male, 1 female]
+0x00BB
+
+0x0100		[64]	STRING_Z		Player name
+0x0140
+
+*0x0150		[2]		SHORT			Res. fire
+*0x0152		[2]		SHORT			Res. cold
+*0x0154		[2]		SHORT			Res. lightning
+*0x0156		[2]		SHORT			Res. acid
+*0x0158		[2]		SHORT			Res. fear
+*0x015A		[2]		SHORT			Res. drain life
+*0x015C		[1]		UBYTE			Character Levitation
+
+0x01B2		[1]		UBYTE			Spell: Heal Minor Wounds	[<0: no (default FF), >=0: yes (default 1) is it mana number?]
+0x01BE		[1]		UBYTE			Spell: Detect Objects		[<0: no (default FF), >=0: yes (default 1)]
+0x01CA		[1]		UBYTE			Spell: Light				[<0: no (default FF), >=0: yes (default 1)]
+0x01D6		[1]		UBYTE			Spell: Magic Arrow			[<0: no (default FF), >=0: yes (default 1)]
+0x01E2		[1]		UBYTE			Spell: Phase Door			[<0: no (default FF), >=0: yes (default 1)]
+0x01EE		[1]		UBYTE			Spell: Shield				[<0: no (default FF), >=0: yes (default 1)]
+0x01FA		[1]		UBYTE			Spell: Clairvoyance			[<0: no (default FF), >=0: yes (default 1)]
+0x0206		[1]		UBYTE			Spell: Cold Bold			[<0: no (default FF), >=0: yes (default 1)]
+0x0212		[1]		UBYTE			Spell: Detect Monsters		[<0: no (default FF), >=0: yes (default 1)]
+0x021E		[1]		UBYTE			Spell: Detect Traps			[<0: no (default FF), >=0: yes (default 1)]
+0x022A		[1]		UBYTE			Spell: Identify				[<0: no (default FF), >=0: yes (default 1)]
+0x0236		[1]		UBYTE			Spell: Levitation			[<0: no (default FF), >=0: yes (default 1)]
+0x0242		[1]		UBYTE			Spell: Neutralize Poison	[<0: no (default FF), >=0: yes (default 1)]
+0x024E		[1]		UBYTE			Spell: Cold Ball			[<0: no (default FF), >=0: yes (default 1)]
+0x025A		[1]		UBYTE			Spell: Heal Medium Wounds	[<0: no (default FF), >=0: yes (default 1)]
+0x0266		[1]		UBYTE			Spell: Fire Bolt			[<0: no (default FF), >=0: yes (default 1)]
+0x0272		[1]		UBYTE			Spell: Lightning			[<0: no (default FF), >=0: yes (default 1)]
+0x027E		[1]		UBYTE			Spell: Remove Curse			[<0: no (default FF), >=0: yes (default 1)]
+0x028A		[1]		UBYTE			Spell: Resist Fire			[<0: no (default FF), >=0: yes (default 1)]
+0x0296		[1]		UBYTE			Spell: Resist Cold			[<0: no (default FF), >=0: yes (default 1)]
+0x02A2		[1]		UBYTE			Spell: Resist Lightning		[<0: no (default FF), >=0: yes (default 1)]
+0x02AE		[1]		UBYTE			Spell: Resist Acid			[<0: no (default FF), >=0: yes (default 1)]
+0x02BA		[1]		UBYTE			Spell: Resist Fear			[<0: no (default FF), >=0: yes (default 1)]
+0x02C6		[1]		UBYTE			Spell: Sleep Monster		[<0: no (default FF), >=0: yes (default 1)]
+0x02D2		[1]		UBYTE			Spell: Slow Monster			[<0: no (default FF), >=0: yes (default 1)]
+0x02DE		[1]		UBYTE			Spell: Teleport				[<0: no (default FF), >=0: yes (default 1)]
+0x02EA		[1]		UBYTE			Spell: Rune of Return		[<0: no (default FF), >=0: yes (default 1)]
+0x02F6		[1]		UBYTE			Spell: Heal Major Wounds	[<0: no (default FF), >=0: yes (default 1)]
+0x0302		[1]		UBYTE			Spell: Fireball				[<0: no (default FF), >=0: yes (default 1)]
+0x030E		[1]		UBYTE			Spell: Ball Lightning		[<0: no (default FF), >=0: yes (default 1)]
+0x031A		[1]		UBYTE			Spell: Healing				[<0: no (default FF), >=0: yes (default 1)]
+0x0326		[1]		UBYTE			Spell: Transmogrify Monster	[<0: no (default FF), >=0: yes (default 1)]
+*0x0332		[2]		SHORT			Spell: Create Traps			[<0: no (default FF), >=0: yes (default 1)]
+*0x033E		[2]		SHORT			Spell: Clone Monster		[<0: no (default FF), >=0: yes (default 1)]
+*0x034A		[2]		SHORT			Spell: Haste Monster		[<0: no (default FF), >=0: yes (default 1)]
+*0x0356		[2]		SHORT			Spell: Teleport Away		[<0: no (default FF), >=0: yes (default 1)]
+
+0x03A2		[25]	STRING_Z		Custom icon
+0x03C7
+
+*0x0427 scrolling Y?
+*0x045E scrolling Y?
+
+0x04F6		[2]		USHORT			Copper
+0x04F8
+
+
+
+0x056C		[1]		UBYTE			Handicap  [0-3]
+0x056D
+
+0x065A
+
+
+* (verify these values)
+
+Num.  Variable name            OFFSET  VAR.TYPE         RANGE
+===========================================================================
+  67  Spell Menu Slot 1           910  2 bytes        +/- 32,767    
+  68  Spell Menu Slot 2           912  2 bytes        +/- 32,767    
+  69  Spell Menu Slot 3           914  2 bytes        +/- 32,767    
+  70  Spell Menu Slot 4           916  2 bytes        +/- 32,767    
+  71  Spell Menu Slot 5           918  2 bytes        +/- 32,767    
+  72  Spell Menu Slot 6           920  2 bytes        +/- 32,767    
+  73  Spell Menu Slot 7           922  2 bytes        +/- 32,767    
+  74  Spell Menu Slot 8           924  2 bytes        +/- 32,767    
+  75  Spell Menu Slot 9           926  2 bytes        +/- 32,767    
+  76  Spell Menu Slot 10          928  2 bytes        +/- 32,767    
+  77  Current Weight             1022  4 bytes     +/- 2,147,483,648
+  78  Current Bulk               1026  4 bytes     +/- 2,147,483,648
+  79  Maximum Weight             1030  4 bytes     +/- 2,147,483,648
+  80  Maximum Bulk               1034  4 bytes     +/- 2,147,483,648
