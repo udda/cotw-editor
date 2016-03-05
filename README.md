@@ -19,8 +19,8 @@ This is an attempt to reverse engineer the savegames of Castle of the Winds, bot
 At the moment it consists only of some binary patterns pinned in a Java "struct" (thanks to Javolution) and some functions for inspecting savegames and discover the meaning of the rest of savefile.
 
 ##### Javolution
-The application uses Javolution.io.Struct to provide the equivalent of a C struct, allowing to map a savefile in a Java class with ease. I extended Struct class to add debug (hexdump) functionality.
+The application uses Javolution.io.Struct to provide the equivalent of a C struct, allowing to map a savefile in a Java class with ease.
+I extended Struct class to add debug (hexdump) functionality.
 
 ##### How to run
-Just type *make run*. You will need JDK and JRE (javac and java) version 7 or above.
-
+You will need JDK and JRE (javac and java) version 7 or above. Then just type *make run*
